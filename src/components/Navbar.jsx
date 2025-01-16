@@ -1,15 +1,38 @@
-import React from 'react';
-import {NavLink } from 'react-router-dom';
-
+import React, { useState } from 'react';
+import { Link, NavLink } from 'react-router-dom';
+import logo from '../assets/pictures/class-vault-logo.png'
 const Navbar = () => {
+    const [showDropdown, setShowDropdown] = useState(false); // State to toggle dropdown
+    // TODO : user setup in auth
+    const user = true;
     const navOptions = <>
         <li><NavLink to="/">Home</NavLink></li>
         <li><NavLink to="/allClasses">All Classes</NavLink></li>
         <li><NavLink to="/teach">Tech On Class-Vault</NavLink></li>
-        <li><NavLink to="/login">Login</NavLink></li>
+
+    </>
+    const handleToggleDropdown = () => {
+        setShowDropdown(!showDropdown);
+    };
+
+    const userOptions = (
+        <>
+            <li className="mb-4 font-sm">{user?.name || "User Name"}</li>
+            <li className='btn btn-wide'>
+                <Link to="/dashboard" className="hover:text-blue-600">Dashboard</Link>
+            </li>
+            <li>
+                <button
+                    // onClick={onLogout}
+                    className="text-red-500 hover:text-red-700 btn btn-wide"
+                >
+                    Logout
+                </button>
+            </li>
         </>
+    );
     return (
-        <div className="navbar bg-base-100">
+        <div className="navbar bg-base-100 items-center">
             <div className="navbar-start">
                 <div className="dropdown">
                     <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -28,20 +51,40 @@ const Navbar = () => {
                     </div>
                     <ul
                         tabIndex={0}
-                        className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow">
+                        className="font-bold  menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow">
                         {navOptions}
                     </ul>
                 </div>
-                <a className="btn btn-ghost text-xl">daisyUI</a>
+                <Link>
+                    <div className='flex items-center'>
+                        <img className='w-16' src={logo} alt="" />
+                        <span className='font-bold text-2xl text-yellow-500'>Class Vault</span>
+                    </div>
+                </Link>
             </div>
             <div className="navbar-center hidden lg:flex">
-                <ul className="menu menu-horizontal px-1">
+                <ul className="menu menu-horizontal px-1 font-bold">
                     {navOptions}
-                    
+
                 </ul>
             </div>
             <div className="navbar-end">
-                <a className="btn">Button</a>
+                {!user ? (
+                    <Link to="/login" className="btn bg-green-500 hover:bg-green-600 text-white">
+                        Login
+                    </Link>
+                ) : (
+                    <div className="relative">
+                        <button onClick={handleToggleDropdown}>
+                            <img className="w-12 h-12 rounded-full" src={user?.photo || logo} alt="User" />
+                        </button>
+                        {showDropdown && (
+                            <ul className="absolute right-0 mt-2 py-5 px-5 bg-white text-black shadow-lg rounded-lg  z-50">
+                                {userOptions}
+                            </ul>
+                        )}
+                    </div>
+                )}
             </div>
         </div>
     );

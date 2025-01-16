@@ -3,7 +3,8 @@ import React from 'react';
 const Home = () => {
     return (
         <div>
-           THis is home 
+         this is Home
+         <img src="../assets/pictures/class-vault-logo.png" alt="" />
         </div>
     );
 };
