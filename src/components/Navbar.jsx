@@ -32,7 +32,7 @@ const Navbar = () => {
         </>
     );
     return (
-        <div className="navbar bg-base-100 items-center">
+        <div className="navbar bg-base-100 items-center fixed top-0 z-50 bg-[rgba(255,126,95,0.8)] backdrop-blur-lg left-0 lg:px-20">
             <div className="navbar-start">
                 <div className="dropdown">
                     <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -51,19 +51,19 @@ const Navbar = () => {
                     </div>
                     <ul
                         tabIndex={0}
-                        className="font-bold  menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow">
+                        className="font-bold  menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow ">
                         {navOptions}
                     </ul>
                 </div>
                 <Link>
                     <div className='flex items-center'>
                         <img className='w-16' src={logo} alt="" />
-                        <span className='font-bold text-2xl text-yellow-500'>Class Vault</span>
+                        <span className='font-bold text-2xl text-white'>Class Vault</span>
                     </div>
                 </Link>
             </div>
             <div className="navbar-center hidden lg:flex">
-                <ul className="menu menu-horizontal px-1 font-bold">
+                <ul className="menu menu-horizontal px-1 font-bold text-white">
                     {navOptions}
 
                 </ul>
