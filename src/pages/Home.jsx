@@ -4,7 +4,7 @@ const Home = () => {
     return (
         <div>
          this is Home
-         <img src="../assets/pictures/class-vault-logo.png" alt="" />
+        
         </div>
     );
 };
