@@ -7,7 +7,7 @@ const Banner = () => {
         <section className="bg-gradient-to-r from-[#FF7E5F] to-[#FEB47B] text-[#2C3E50] mt-24">
         <div className="container mx-auto px-4 py-16 flex flex-col md:flex-row items-center">
             {/* Text Content */}
-            <div className="md:w-1/2 mr-5 text-center md:text-left">
+            <div className="md:w-1/2 text-center md:text-left">
                 <h1 className="text-4xl md:text-6xl font-bold mb-4">
                     Revolutionizing Education Management
                 </h1>
