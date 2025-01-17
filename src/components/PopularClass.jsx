@@ -18,7 +18,7 @@ const PopularClass = () => {
     }, []);
 
     return (
-        <div className='bg-gray-100 py-10'>
+        <div className='bg-orange-100 py-10'>
             <div className="text-center my-10">
                 <h2 className="text-4xl font-extrabold text-gray-800 mb-4">
                     Top <span className="text-orange-500">Enrolled Classes</span>
@@ -29,7 +29,7 @@ const PopularClass = () => {
             </div>
             <div className="w-full flex justify-center ">
 
-                <div className="w-full max-w-xl h-[500px]">
+                <div className="w-full max-w-xl">
                     <Swiper
                         effect={'cards'}
                         grabCursor={true}
