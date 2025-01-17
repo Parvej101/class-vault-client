@@ -37,7 +37,7 @@ const PopularClass = () => {
                         className="mySwiper"
                     >
                         {courses.map((course) => (
-                            <SwiperSlide key={course._id} className="flex flex-col items-center justify-center text-center p-4 bg-white shadow-lg rounded-lg">
+                            <SwiperSlide key={course._id} className="relative flex flex-col items-center justify-center text-center p-4 bg-white shadow-lg rounded-lg">
                                 <img
                                     src={course.image}
                                     alt={course.title}
@@ -46,6 +46,7 @@ const PopularClass = () => {
                                 <h3 className="text-lg font-bold">Title: {course.title}</h3>
                                 <p className="text-sm mt-2">Description: {course.description}</p>
                                 <p className="text-sm mt-2 font-semibold">Price: ${course.price}</p>
+                                <div className='rounded-md font-bold py-2 bg-orange-400 text-white px-4 absolute top-0 left-0'>Enrolled : {course.enrolled}</div>
                             </SwiperSlide>
                         ))}
 
