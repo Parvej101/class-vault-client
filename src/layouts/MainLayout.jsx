@@ -5,7 +5,7 @@ import Footer from "../components/Footer";
 
 const MainLayout = () => {
     return (
-        <div className="w-11/12 mx-auto">
+        <div className="">
             <Navbar></Navbar>
             <Outlet></Outlet>
             {/* ToDo : uncommnet this footer */}
