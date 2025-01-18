@@ -5,6 +5,7 @@ import MainLayout from "../layouts/MainLayout";
 import ErrorPage from "../shared/ErrorPage";
 import Home from "../pages/Home";
 import AllClasses from "../pages/AllClasses";
+import Register from "../pages/Register";
 
 
   const routes = createBrowserRouter([
@@ -20,6 +21,10 @@ import AllClasses from "../pages/AllClasses";
             {
               path: '/allClasses',
               element: <AllClasses></AllClasses>
+            },
+            {
+              path: 'register',
+              element: <Register></Register>
             },
         ],
     }
