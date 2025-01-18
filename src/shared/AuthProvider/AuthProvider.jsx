@@ -10,6 +10,7 @@ import {
     signOut,
     updateProfile
 } from "firebase/auth";
+import axiosPublic from "../../hooks/useAxiosPublic";
 
 const AuthContext = createContext();
 const auth = getAuth(app);
@@ -17,12 +18,27 @@ const auth = getAuth(app);
 const AuthProvider = ({ children }) => {
     const [user, setUser] = useState(null);
     const [loading, setLoading] = useState(true);
+    // const [token, setToken] = useState(localStorage.getItem('access-token'))
 
     useEffect(() => {
-        const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
+        const unsubscribe = onAuthStateChanged(auth, currentUser => {
             setUser(currentUser);
+            if (currentUser) {
+                // get token and store client
+                const userInfo = { email: currentUser.email };
+                axiosPublic.post('/jwt', userInfo)
+                    .then(res => {
+                        if (res.data.token) {
+                            localStorage.setItem('access-token', res.data.token);
+                        }
+                    })
+            }
+            else {
+                // TODO: remove token (if token stored in the client side: Local storage, caching, in memory)
+                // localStorage.removeItem('access-token');
+            }
             setLoading(false);
-        })
+        });
         return () => unsubscribe();
     }, [])
 
@@ -37,11 +53,11 @@ const AuthProvider = ({ children }) => {
         }
     };
 
-    const login = (email, password) =>{
+    const login = (email, password) => {
         setLoading(true);
-        try{
+        try {
             signInWithEmailAndPassword(auth, email, password);
-        }finally{
+        } finally {
             setLoading(false)
         }
     }
@@ -51,11 +67,13 @@ const AuthProvider = ({ children }) => {
     const googleProvider = new GoogleAuthProvider();
     const loginWithGoogle = async () => {
         setLoading(true);
-        try{ const result = await signInWithPopup(auth, googleProvider);
-            setUser(result.user)}finally{
-                setLoading(false)
-            }
-       
+        try {
+            const result = await signInWithPopup(auth, googleProvider);
+            setUser(result.user)
+        } finally {
+            setLoading(false)
+        }
+
     }
 
     const authInfo = {
