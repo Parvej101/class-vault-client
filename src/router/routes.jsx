@@ -6,6 +6,7 @@ import ErrorPage from "../shared/ErrorPage";
 import Home from "../pages/Home";
 import AllClasses from "../pages/AllClasses";
 import Register from "../pages/Register";
+import Login from "../pages/Login";
 
 
   const routes = createBrowserRouter([
@@ -25,6 +26,10 @@ import Register from "../pages/Register";
             {
               path: 'register',
               element: <Register></Register>
+            },
+            {
+              path: 'login',
+              element: <Login></Login>
             },
         ],
     }
