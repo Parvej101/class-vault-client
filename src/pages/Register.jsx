@@ -6,23 +6,24 @@ import { Player } from "@lottiefiles/react-lottie-player";
 import useAuth from "../hooks/useAuth";
 import { useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
+import Loading from "../shared/Loading";
 
 const Register = () => {
     const navigate = useNavigate()
-    const {register: registerUser} = useAuth()
+    const { register: registerUser, loading ,} = useAuth()
     const {
         register,
         handleSubmit,
         formState: { errors },
-      } = useForm();
-    
-      const onSubmit = async (data) => {
+    } = useForm();
+
+    const onSubmit = async (data) => {
         console.log(data);
-        const {name, email, password, photoURL} = data;
-        try{
-            await registerUser(email,password,name,photoURL);
-              // Show success alert
-              Swal.fire({
+        const { name, email, password, photoURL } = data;
+        try {
+            await registerUser(email, password, name, photoURL);
+            // Show success alert
+            Swal.fire({
                 title: 'Registration Successful!',
                 text: 'Welcome to the platform!',
                 icon: 'success',
@@ -30,10 +31,10 @@ const Register = () => {
             });
 
             navigate('/');
-        }catch(error){
+        } catch (error) {
             console.log("firebase register error", error);
         }
-      };
+    };
 
 
 
@@ -50,99 +51,103 @@ const Register = () => {
             </div>
 
             {/* Registration Form */}
-            <motion.div
-                initial={{ opacity: 0, scale: 0.8 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.5 }}
-                className="bg-white shadow-lg rounded-lg p-8 w-full lg:w-1/3 z-10"
-            >
-                <h2 className="text-3xl font-extrabold text-center mb-6 text-orange-600">
-                    Create an Account
-                </h2>
-                <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
-                    {/* Name Input */}
-                    <div>
-                        <label className="block text-gray-700">Name</label>
-                        <input
-                            type="text"
-                            {...register("name", { required: "Name is required" })}
-                            placeholder="Enter your name"
-                            className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring focus:ring-orange-300"
-                        />
-                        {errors.name && (
-                            <span className="text-red-500 text-sm">{errors.name.message}</span>
-                        )}
-                    </div>
-
-                    {/* Email Input */}
-                    <div>
-                        <label className="block text-gray-700">Email</label>
-                        <input
-                            type="email"
-                            {...register("email", {
-                                required: "Email is required",
-                                pattern: {
-                                    value: /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/,
-                                    message: "Invalid email address",
-                                },
-                            })}
-                            placeholder="Enter your email"
-                            className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring focus:ring-orange-300"
-                        />
-                        {errors.email && (
-                            <span className="text-red-500 text-sm">{errors.email.message}</span>
-                        )}
-                    </div>
-
-                    {/* Password Input */}
-                    <div>
-                        <label className="block text-gray-700">Password</label>
-                        <input
-                            type="password"
-                            {...register("password", {
-                                required: "Password is required",
-                                minLength: {
-                                    value: 6,
-                                    message: "Password must be at least 6 characters",
-                                },
-                            })}
-                            placeholder="Enter your password"
-                            className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring focus:ring-orange-300"
-                        />
-                        {errors.password && (
-                            <span className="text-red-500 text-sm">
-                                {errors.password.message}
-                            </span>
-                        )}
-                    </div>
-
-                    {/* Photo URL Input */}
-                    <div>
-                        <label className="block text-gray-700">Photo URL</label>
-                        <input
-                            type="url"
-                            {...register("photoURL", { required: "Photo URL is required" })}
-                            placeholder="Enter photo URL"
-                            className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring focus:ring-orange-300"
-                        />
-                        {errors.photoURL && (
-                            <span className="text-red-500 text-sm">
-                                {errors.photoURL.message}
-                            </span>
-                        )}
-                    </div>
-
-                    {/* Submit Button */}
-                    <motion.button
-                        type="submit"
-                        className="w-full bg-orange-500 hover:bg-orange-700 text-white font-bold py-2 px-4 rounded-lg transition duration-200"
-                        whileHover={{ scale: 1.05 }}
-                        whileTap={{ scale: 0.95 }}
+            {
+                loading ? (<Loading></Loading>) : (
+                    <motion.div
+                        initial={{ opacity: 0, scale: 0.8 }}
+                        animate={{ opacity: 1, scale: 1 }}
+                        transition={{ duration: 0.5 }}
+                        className="bg-white shadow-lg rounded-lg p-8 w-full lg:w-1/3 z-10"
                     >
-                        Register
-                    </motion.button>
-                </form>
-            </motion.div>
+                        <h2 className="text-3xl font-extrabold text-center mb-6 text-orange-600">
+                            Create an Account
+                        </h2>
+                        <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
+                            {/* Name Input */}
+                            <div>
+                                <label className="block text-gray-700">Name</label>
+                                <input
+                                    type="text"
+                                    {...register("name", { required: "Name is required" })}
+                                    placeholder="Enter your name"
+                                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring focus:ring-orange-300"
+                                />
+                                {errors.name && (
+                                    <span className="text-red-500 text-sm">{errors.name.message}</span>
+                                )}
+                            </div>
+
+                            {/* Email Input */}
+                            <div>
+                                <label className="block text-gray-700">Email</label>
+                                <input
+                                    type="email"
+                                    {...register("email", {
+                                        required: "Email is required",
+                                        pattern: {
+                                            value: /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/,
+                                            message: "Invalid email address",
+                                        },
+                                    })}
+                                    placeholder="Enter your email"
+                                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring focus:ring-orange-300"
+                                />
+                                {errors.email && (
+                                    <span className="text-red-500 text-sm">{errors.email.message}</span>
+                                )}
+                            </div>
+
+                            {/* Password Input */}
+                            <div>
+                                <label className="block text-gray-700">Password</label>
+                                <input
+                                    type="password"
+                                    {...register("password", {
+                                        required: "Password is required",
+                                        minLength: {
+                                            value: 6,
+                                            message: "Password must be at least 6 characters",
+                                        },
+                                    })}
+                                    placeholder="Enter your password"
+                                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring focus:ring-orange-300"
+                                />
+                                {errors.password && (
+                                    <span className="text-red-500 text-sm">
+                                        {errors.password.message}
+                                    </span>
+                                )}
+                            </div>
+
+                            {/* Photo URL Input */}
+                            <div>
+                                <label className="block text-gray-700">Photo URL</label>
+                                <input
+                                    type="url"
+                                    {...register("photoURL", { required: "Photo URL is required" })}
+                                    placeholder="Enter photo URL"
+                                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring focus:ring-orange-300"
+                                />
+                                {errors.photoURL && (
+                                    <span className="text-red-500 text-sm">
+                                        {errors.photoURL.message}
+                                    </span>
+                                )}
+                            </div>
+
+                            {/* Submit Button */}
+                            <motion.button
+                                type="submit"
+                                className="w-full bg-orange-500 hover:bg-orange-700 text-white font-bold py-2 px-4 rounded-lg transition duration-200"
+                                whileHover={{ scale: 1.05 }}
+                                whileTap={{ scale: 0.95 }}
+                            >
+                                Register
+                            </motion.button>
+                        </form>
+                    </motion.div>
+                )
+            }
         </div>
     );
 };

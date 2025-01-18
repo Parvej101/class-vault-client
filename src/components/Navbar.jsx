@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import logo from '../assets/pictures/class-vault-logo.png'
+import useAuth from '../hooks/useAuth';
 const Navbar = () => {
     const [showDropdown, setShowDropdown] = useState(false); // State to toggle dropdown
     // TODO : user setup in auth
-    const user = true;
+    const {user, logout } = useAuth()
+    console.log(user);
     const navOptions = <>
         <li><NavLink to="/">Home</NavLink></li>
         <li><NavLink to="/allClasses">All Classes</NavLink></li>
@@ -14,6 +16,9 @@ const Navbar = () => {
     const handleToggleDropdown = () => {
         setShowDropdown(!showDropdown);
     };
+    const handleLogout = () =>{
+        logout()
+    }
 
     const userOptions = (
         <>
@@ -23,7 +28,7 @@ const Navbar = () => {
             </li>
             <li>
                 <button
-                    // onClick={onLogout}
+                    onClick={handleLogout}
                     className="text-red-500 hover:text-red-700 btn btn-wide"
                 >
                     Logout
@@ -76,7 +81,7 @@ const Navbar = () => {
                 ) : (
                     <div className="relative">
                         <button onClick={handleToggleDropdown}>
-                            <img className="w-12 h-12 rounded-full" src={user?.photo || logo} alt="User" />
+                            <img className="w-12 h-12 rounded-full" src={user?.photoURL || user.displayName } alt="User" />
                         </button>
                         {showDropdown && (
                             <ul className="absolute right-0 mt-2 py-5 px-5 bg-white text-black shadow-lg rounded-lg  z-50">
