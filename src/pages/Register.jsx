@@ -7,6 +7,7 @@ import useAuth from "../hooks/useAuth";
 import { useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 import Loading from "../shared/Loading";
+import axiosPublic from "../hooks/useAxiosPublic";
 
 const Register = () => {
     const navigate = useNavigate()
@@ -15,6 +16,7 @@ const Register = () => {
         register,
         handleSubmit,
         formState: { errors },
+        reset,
     } = useForm();
 
     const onSubmit = async (data) => {
@@ -22,6 +24,20 @@ const Register = () => {
         const { name, email, password, photoURL } = data;
         try {
             await registerUser(email, password, name, photoURL);
+
+            // create user entry in database
+            const userInfo ={
+                name : name,
+                email : email,
+                photo : photoURL,
+                role : "user"
+            }
+            axiosPublic.post('/users', userInfo)
+            .then(res =>{
+                if(res.data.insertedId){
+                    console.log('user added to the database');
+                }
+            })
             // Show success alert
             Swal.fire({
                 title: 'Registration Successful!',
