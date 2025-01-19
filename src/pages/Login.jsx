@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 import animation from '../assets/lottie/login.json';
 import { Player } from "@lottiefiles/react-lottie-player";
 import useAuth from "../hooks/useAuth";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Swal from 'sweetalert2';
 import { FaGoogle } from "react-icons/fa";
 import Loading from "../shared/Loading";
@@ -151,6 +151,7 @@ const Login = () => {
                      <FaGoogle className="mr-2" />
                      Login with Google
                  </motion.button>
+                 <p className="mt-2">If you new please <Link to='/register'><span className="text-red-500 font-semibold">Register</span></Link></p>
              </div>
          </motion.div>
            )}

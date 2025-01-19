@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 import animation from '../assets/lottie/register.json'
 import { Player } from "@lottiefiles/react-lottie-player";
 import useAuth from "../hooks/useAuth";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 import Loading from "../shared/Loading";
 import axiosPublic from "../hooks/useAxiosPublic";
@@ -161,6 +161,7 @@ const Register = () => {
                                 Register
                             </motion.button>
                         </form>
+                        <p>You have already account <Link to='/login'><span className="text-red-500 font-semibold">Login</span></Link></p>
                     </motion.div>
                 )
             }
