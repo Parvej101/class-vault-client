@@ -7,6 +7,7 @@ import StatsCard from '../components/StatsCard';
 import useAuth from '../hooks/useAuth';
 import BecomeTeacher from '../components/BecomeTeacher';
 import Faq from '../components/Faq';
+import TimeManagement from '../components/TimeManagement';
 
 const Home = () => {
     const {user} = useAuth()
@@ -19,6 +20,7 @@ const Home = () => {
         <StatsCard></StatsCard>
         <BecomeTeacher></BecomeTeacher>
         <Faq></Faq>
+        <TimeManagement></TimeManagement>
         
         </div>
     );
