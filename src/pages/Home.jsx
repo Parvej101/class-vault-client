@@ -5,6 +5,7 @@ import PopularClass from '../components/PopularClass';
 import Reviews from '../components/Reviews';
 import StatsCard from '../components/StatsCard';
 import useAuth from '../hooks/useAuth';
+import BecomeTeacher from '../components/BecomeTeacher';
 
 const Home = () => {
     const {user} = useAuth()
@@ -15,6 +16,7 @@ const Home = () => {
         <PopularClass></PopularClass>
         <Reviews></Reviews>
         <StatsCard></StatsCard>
+        <BecomeTeacher></BecomeTeacher>
         
         </div>
     );
