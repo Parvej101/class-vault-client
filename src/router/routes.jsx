@@ -10,6 +10,7 @@ import Login from "../pages/Login";
 import CourseDetails from "../pages/CourseDetails";
 import Payemnt from "../pages/Payemnt";
 import PrivateRoutes from "../shared/PrivateRoutes/PrivateRoutes";
+import ApplyTeacher from "../pages/ApplyTeacher";
 
 
   const routes = createBrowserRouter([
@@ -41,6 +42,10 @@ import PrivateRoutes from "../shared/PrivateRoutes/PrivateRoutes";
             {
               path: '/payment',
               element: <PrivateRoutes><Payemnt></Payemnt></PrivateRoutes>
+            },
+            {
+              path: 'applyTeacher',
+              element: <ApplyTeacher></ApplyTeacher>
             },
         ],
     }

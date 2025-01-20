@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import image from '../assets/pictures/become-teacher.png'
 
 const BecomeTeacher = () => {
@@ -20,9 +21,10 @@ const BecomeTeacher = () => {
                     share their expertise. Join us today and help shape the future of education!
                     Whether you're a seasoned professional or just starting, you can make a difference.
                 </p>
-                <button className="bg-green-500 text-white font-semibold py-2 px-6 rounded-lg shadow-md hover:bg-green-600 transition duration-300">
-                    Start Teaching Today
-                </button>
+                <Link to='applyTeacher'>
+                    <button className="bg-green-500 text-white font-semibold py-2 px-6 rounded-lg shadow-md hover:bg-green-600 transition duration-300">
+                        Start Teaching Today
+                    </button></Link>
             </div>
         </div>
     );
