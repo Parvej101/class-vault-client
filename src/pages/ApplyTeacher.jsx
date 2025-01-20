@@ -1,16 +1,65 @@
-
+import Swal from 'sweetalert2';
 import useAuth from '../hooks/useAuth';
 import { useForm } from "react-hook-form";
+import { useMutation } from '@tanstack/react-query';
+import axiosSecure from '../hooks/useAxiosSecure';
+
 const ApplyTeacher = () => {
-    const { user } = useAuth(); // Get the logged-in user
+    const { user } = useAuth();
     const { register, handleSubmit, formState: { errors } } = useForm();
 
-    const categories = ["Web Development", "Digital Marketing", "Data Science", "Graphic Design", "Content Writing"]; // List of categories
+    const categories = [
+        "Web Development",
+        "Digital Marketing",
+        "Data Science",
+        "Graphic Design",
+        "Content Writing"
+    ]; // List of categories
 
-    const onSubmit = (data) => {
-        // Handle form submission (submit to API, log data, etc.)
-        console.log("Form Submitted", data);
+    // POST request function using axiosSecure
+    const postTeachingPosition = async (data) => {
+        console.log(data);
+        try {
+            const response = await axiosSecure.post('/teachers', {
+                ...data,
+                status: 'pending',  // Default status is 'pending'
+                photo: user?.photoURL,  // Photo URL from logged-in user
+                email: user?.email,
+            });
+
+            return response.data; // Return data if request is successful
+        } catch (error) {
+            throw new Error(error.response?.data?.message || 'Error submitting the form');
+        }
     };
+
+    // Using TanStack Query's useMutation to handle form submission
+    const mutation = useMutation({
+        mutationFn: postTeachingPosition,
+        onSuccess: () => {
+            Swal.fire({
+                position: "top-center",
+                icon: "success",
+                title: "Successfully Submitted",
+                showConfirmButton: false,
+                timer: 1500,
+            });
+        },
+        onError: (error) => {
+            Swal.fire({
+                title: "Error",
+                text: error.message,
+                icon: "error",
+                confirmButtonText: "Try Again",
+            });
+        },
+    });
+
+    // Handle form submission
+    const onSubmit = (data) => {
+        mutation.mutate(data);  // Trigger the mutation
+    };
+
     return (
         <div className="max-w-lg mx-auto p-6 bg-white shadow-md rounded-md">
             <h2 className="text-2xl font-bold text-center text-orange-600 mb-6">Apply for Teaching Position</h2>
