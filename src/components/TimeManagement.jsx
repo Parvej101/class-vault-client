@@ -1,63 +1,73 @@
-import { FaReact, FaJsSquare, FaDatabase } from "react-icons/fa"; // Example technology icons
-import { useSpring, animated } from "react-spring";
-import Clock from "react-clock"; // Import the analog clock
-import "react-clock/dist/Clock.css"; // Optional for default styles
+import React, { useState, useEffect } from 'react';
+import { useSpring } from 'react-spring';
 
 const TimeManagement = () => {
-    const rotateIcons = useSpring({
-        loop: true,
-        to: { transform: "rotate(0deg)" },
-        from: { transform: "rotate(5deg)" },
-        config: { duration: 5000 }, // Adjust time for full rotation
-    });
-    return (
-        <div className="bg-gray-900 text-white p-10 rounded-lg shadow-lg relative overflow-hidden">
-            <div className="flex flex-col items-center space-y-8">
-                {/* Title Section */}
-                <div className="text-center text-3xl font-bold">
-                    <h2>Time Management</h2>
-                    <p className="text-lg mt-2">Master your time with the right tools and techniques</p>
-                </div>
+  const [time, setTime] = useState(new Date());
 
-                {/* Icons animation around the clock */}
-                <animated.div
-                    style={rotateIcons}
-                    className="absolute top-32 left-32 transform -translate-x-1/2 -translate-y-1/2"
-                >
-                    <div className="relative flex items-center justify-center space-x-12">
-                        {/* Icons are placed around the clock */}
-                        <div className="absolute left-20 top-0">
-                            <FaJsSquare className="text-6xl text-yellow-500" />
-                            <span className="mt-2 text-center">JavaScript</span>
-                        </div>
-                        <div className="absolute left-60 top-10">
-                            <FaReact className="text-6xl text-yellow-500" />
-                            <span className="mt-2 text-center">React</span>
-                        </div>
-                        <div className="absolute left-0 -top-10">
-                            <FaDatabase className="text-6xl text-yellow-500" />
-                            <span className="mt-2 text-center">MongoDB</span>
-                        </div>
-                    </div>
-                </animated.div>
-                
+  // Update the time every second
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setTime(new Date());
+    }, 1000);
 
-                {/* Analog Clock */}
-                <div className="relative flex justify-center items-center">
-                    <Clock value={new Date()} size={400} renderNumbers={true} />
-                </div>
+    return () => clearInterval(timer); // Clean up the interval on component unmount
+  }, []);
 
-                {/* Time Management Tips */}
-                <div className="text-center mt-8 max-w-xl mx-auto">
-                    <p className="text-lg">
-                        Effective time management is key to mastering your workflow. With tools like JavaScript for logic, React for front-end
-                        management, and MongoDB for data management, you can build efficient, scalable applications. Don't forget to take regular breaks
-                        and stay focused with proper time tracking!
-                    </p>
-                </div>
+  const hours = time.getHours().toString().padStart(2, '0');
+  const minutes = time.getMinutes().toString().padStart(2, '0');
+  const seconds = time.getSeconds().toString().padStart(2, '0');
+
+  return (
+    <div className="bg-gray-900 text-white p-10 rounded-lg shadow-lg relative overflow-hidden">
+      <div className="text-center text-3xl font-bold">
+        <h2>Time Management</h2>
+        <p className="text-lg my-4">Master your time with the right tools and techniques</p>
+      </div>
+
+      {/* Flexbox for larger screens, stacked for smaller ones */}
+      <div className="flex flex-col md:flex-row items-center justify-center space-y-6 md:space-y-0 md:space-x-6">
+        {/* Digital Clock Section with Frame */}
+        <div className="flex justify-center items-center">
+          <div className="relative w-64 h-64 flex justify-center items-center bg-gray-800 rounded-full border-4 border-orange-600 shadow-md">
+            <div className="text-4xl font-mono text-orange-600">
+              <span>{hours}:{minutes}:{seconds}</span>
             </div>
+          </div>
         </div>
-    );
+
+        {/* Time Management Card */}
+        <div className="max-w-md mx-auto bg-white rounded-xl shadow-md overflow-hidden md:max-w-2xl">
+          <div className="md:flex">
+            <div className="p-8">
+              <h2 className="text-xl font-semibold text-orange-600">Importance of Time Management</h2>
+              <p className="mt-4 text-gray-600">
+                Time management is crucial for achieving personal and professional goals. By prioritizing tasks,
+                avoiding procrastination, and staying organized, one can make the most of their time and achieve more.
+              </p>
+
+              <div className="mt-6">
+                <ul className="list-disc pl-6">
+                  <li className="text-gray-800">Increase productivity</li>
+                  <li className="text-gray-800">Reduce stress and anxiety</li>
+                  <li className="text-gray-800">Ensure consistent progress towards goals</li>
+                  <li className="text-gray-800">Enhance focus and concentration</li>
+                </ul>
+              </div>
+            </div>
+            <div className="p-8 bg-orange-100 flex justify-center items-center">
+              <div className="text-center">
+                <h3 className="text-2xl font-bold text-orange-600">How to Manage Time Effectively</h3>
+                <p className="mt-4 text-gray-600">Use techniques like time blocking, prioritizing tasks, and setting goals!</p>
+                <button className="mt-6 bg-orange-600 text-white py-2 px-6 rounded-lg hover:bg-orange-700 transition-all">
+                  Start Organizing Your Time
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
 };
 
 export default TimeManagement;
