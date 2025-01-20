@@ -54,7 +54,7 @@ const AllClasses = () => {
                                 <p className="text-lg font-semibold text-gray-600">Price: {course.price}</p>
                                 <p className="text-lg font-semibold text-gray-500">Name: {course.name}</p>
                                 <p className="text-lg font-semibold text-gray-500 mt-2">Description: {course.description}</p>
-                               <Link>
+                               <Link to={`/courseDetails/${course._id}`}>
                                <button className="w-full mt-4 btn bg-orange-400 text-white font-bold text-xl">
                                 Enroll
                                </button>
