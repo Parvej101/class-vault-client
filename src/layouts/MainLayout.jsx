@@ -7,7 +7,7 @@ const MainLayout = () => {
     return (
         <div className="">
             <Navbar></Navbar>
-            <Outlet></Outlet>
+           <div className="mt-24"> <Outlet></Outlet></div>
             {/* ToDo : uncommnet this footer */}
             {/* <Footer></Footer> */}
         </div>

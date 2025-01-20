@@ -28,7 +28,7 @@ const CourseDetails = () => {
             <img
                 src={course.image}
                 alt={course.title}
-                className="w-full h-96 object-cover"
+                className="w-full lg:h-96 object-cover"
             />
             <div className="p-6">
                 {/* Course Title */}

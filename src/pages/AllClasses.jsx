@@ -46,14 +46,14 @@ const AllClasses = () => {
                                     <img
                                         src={course.image}
                                         alt={course.title}
-                                        className="w-full h-60 object-cover rounded-lg"
+                                        className="w-full lg:h-60 object-cover rounded-lg"
                                     />
                                     <div className="absolute inset-0 bg-gradient-to-t from-black opacity-30 rounded-lg"></div>
                                 </div>
                                 <h3 className="text-xl font-bold mt-4">Title: {course.title}</h3>
                                 <p className="text-lg font-semibold text-gray-600">Price: {course.price}</p>
                                 <p className="text-lg font-semibold text-gray-500">Name: {course.name}</p>
-                                <p className="text-lg font-semibold text-gray-500 mt-2">Description: {course.description}</p>
+                                <p className="lg:text-lg text-base lg:font-semibold text-gray-500 mt-2">Description: {course.description}</p>
                                <Link to={`/courseDetails/${course._id}`}>
                                <button className="w-full mt-4 btn bg-orange-400 text-white font-bold text-xl">
                                 Enroll
