@@ -11,7 +11,7 @@ import axiosPublic from "../hooks/useAxiosPublic";
 
 const Register = () => {
     const navigate = useNavigate()
-    const { register: registerUser, loading ,} = useAuth()
+    const { register: registerUser, loading, } = useAuth()
     const {
         register,
         handleSubmit,
@@ -26,27 +26,28 @@ const Register = () => {
             await registerUser(email, password, name, photoURL);
 
             // create user entry in database
-            const userInfo ={
-                name : name,
-                email : email,
-                photo : photoURL,
-                role : "user"
+            const userInfo = {
+                name: name,
+                email: email,
+                photo: photoURL,
+                role: "user"
             }
             axiosPublic.post('/users', userInfo)
-            .then(res =>{
-                if(res.data.insertedId){
-                    console.log('user added to the database');
-                }
-            })
+                .then(res => {
+                    if (res.data.insertedId) {
+                        console.log('user added to the database');
+                    }
+                })
             // Show success alert
             Swal.fire({
-                title: 'Registration Successful!',
-                text: 'Welcome to the platform!',
-                icon: 'success',
-                confirmButtonText: 'OK',
+                position: "top-center",
+                icon: "success",
+                title: "Successfully Register",
+                showConfirmButton: false,
+                timer: 1500
             });
 
-            navigate('/');
+            // navigate('/');
         } catch (error) {
             console.log("firebase register error", error);
         }

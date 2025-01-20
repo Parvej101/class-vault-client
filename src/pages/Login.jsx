@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 import animation from '../assets/lottie/login.json';
 import { Player } from "@lottiefiles/react-lottie-player";
 import useAuth from "../hooks/useAuth";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import Swal from 'sweetalert2';
 import { FaGoogle } from "react-icons/fa";
 import Loading from "../shared/Loading";
@@ -12,6 +12,12 @@ const Login = () => {
 
     const { login: loginUser, loginWithGoogle, loading } = useAuth();
     const navigate = useNavigate();
+    const location = useLocation()
+
+    const handleRedirect = () => {
+        const redirectTo = location.state?.from || '/';
+        navigate(redirectTo);
+    };
     const {
         register,
         handleSubmit,
@@ -19,20 +25,21 @@ const Login = () => {
     } = useForm();
 
     const onSubmit = async (data) => {
-        console.log(data);
+
         const { email, password } = data;
         try {
             await loginUser(email, password);
 
             // Show success alert
             Swal.fire({
-                title: 'Login Successful!',
-                text: 'Welcome back!',
-                icon: 'success',
-                confirmButtonText: 'OK',
-            });
+                position: "top-center",
+                icon: "success",
+                title: "Successfully Login",
+                showConfirmButton: false,
+                timer: 1500
+              });
 
-            navigate('/'); // Redirect to home or other page after success
+            handleRedirect(); 
         } catch (error) {
             console.log("firebase login error", error);
             Swal.fire({
@@ -48,12 +55,13 @@ const Login = () => {
         try {
             await loginWithGoogle();
             Swal.fire({
-                title: 'Google Login Successful!',
-                text: 'Welcome back!',
-                icon: 'success',
-                confirmButtonText: 'OK',
-            });
-            navigate('/'); // Redirect after Google login success
+                position: "top-center",
+                icon: "success",
+                title: "Successfully Login",
+                showConfirmButton: false,
+                timer: 1500
+              });
+            handleRedirect()
         } catch (error) {
             console.log("Google login error", error);
             Swal.fire({

@@ -8,6 +8,8 @@ import AllClasses from "../pages/AllClasses";
 import Register from "../pages/Register";
 import Login from "../pages/Login";
 import CourseDetails from "../pages/CourseDetails";
+import Payemnt from "../pages/Payemnt";
+import PrivateRoutes from "../shared/PrivateRoutes/PrivateRoutes";
 
 
   const routes = createBrowserRouter([
@@ -34,7 +36,11 @@ import CourseDetails from "../pages/CourseDetails";
             },
             {
               path: '/courseDetails/:id',
-              element: <CourseDetails></CourseDetails>
+              element: <PrivateRoutes><CourseDetails></CourseDetails></PrivateRoutes>
+            },
+            {
+              path: '/payment',
+              element: <PrivateRoutes><Payemnt></Payemnt></PrivateRoutes>
             },
         ],
     }

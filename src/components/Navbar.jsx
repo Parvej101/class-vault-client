@@ -6,7 +6,7 @@ const Navbar = () => {
     const [showDropdown, setShowDropdown] = useState(false); // State to toggle dropdown
     // TODO : user setup in auth
     const {user, logout } = useAuth()
-    console.log(user);
+
     const navOptions = <>
         <li><NavLink to="/">Home</NavLink></li>
         <li><NavLink to="/allClasses">All Classes</NavLink></li>

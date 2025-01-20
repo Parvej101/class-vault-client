@@ -5,13 +5,15 @@ import Loading from '../Loading';
 
 const PrivateRoutes = ({children}) => {
     const {user, loading} = useAuth()
+
+
     const location = useLocation();
 
     if(loading){
-        <Loading></Loading>
+       return <Loading></Loading>
     }
-    if(!user){
-        return <Navigate to='/login' state={{from:location}} replace></Navigate>
+    if (!user) { 
+        return <Navigate to='/login' state={{ from: location }} replace />;
     }
     return children;
 };
