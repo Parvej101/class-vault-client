@@ -1,10 +1,27 @@
-import React from 'react';
+
+import { useLocation } from 'react-router-dom';
+import CheckoutForm from './CheckoutForm';
+import { Elements } from '@stripe/react-stripe-js';
+import { loadStripe } from '@stripe/stripe-js';
 
 const Payemnt = () => {
+    const location = useLocation()
+    const amount = location.state;
+
+    const stripePromise = loadStripe(import.meta.env.VITE_STRIPE_PUBLIC_KEY);
     return (
-        <div>
-           <h1>Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo placeat magnam accusamus aspernatur similique temporibus consectetur? Fugiat obcaecati, quis voluptate exercitationem quod nulla unde nihil iste pariatur voluptatibus. Corrupti numquam doloribus inventore repudiandae officia voluptates nihil. Sed magnam voluptates nisi exercitationem harum officiis, ad voluptatem alias aut molestiae sit assumenda delectus vitae eveniet quidem minus dolorum atque placeat eius optio consectetur, at iste neque possimus? Eos hic tempore vero rem laborum autem ipsam, inventore nihil veniam repellendus. Dicta ea, minus corrupti ullam similique distinctio culpa officia expedita deserunt autem saepe modi molestiae cum maxime dolore possimus velit? Fugiat, distinctio hic?</h1>
+        <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100">
+        <div className="w-full max-w-lg bg-white shadow-md rounded-lg p-6">
+            <h1 className="text-2xl font-bold text-center mb-4">Payment</h1>
+            <div className="mb-6">
+                <p className="text-xl font-bold mt-2">Amount: ${amount}</p>
+            </div>
+            {/* Wrap CheckoutForm with Elements and pass stripePromise */}
+            <Elements stripe={stripePromise}>
+                <CheckoutForm amount={amount} />
+            </Elements>
         </div>
+    </div>
     );
 };
 

@@ -4,7 +4,7 @@
       "name": "John Doe",
       "email": "john@uxdesign.com",
       "status": "approved",
-      "price": "$199",
+      "price": 199,
       "enrolled": 120,
       "description": "Learn the fundamentals of UI/UX design and create user-friendly, visually appealing websites and apps.",
       "image": "https://i.ibb.co.com/s6dRNPX/1.png"
@@ -14,7 +14,7 @@
       "name": "Jane Smith",
       "email": "jane@web3.com",
       "status": "pending",
-      "price": "$299",
+      "price": 299,
       "enrolled": 80,
       "description": "Dive into the world of decentralized apps (DApps) and smart contracts with Web 3.0 technologies.",
       "image": "https://i.ibb.co.com/h7zDtrZ/2.png"
@@ -24,7 +24,7 @@
       "name": "Emma Johnson",
       "email": "emma@htmltutorials.com",
       "status": "approved",
-      "price": "$99",
+      "price": 99,
       "enrolled": 200,
       "description": "Start your web development journey with HTML, the basic building block of every website.",
       "image": "https://i.ibb.co.com/dMsPybt/3.png"
@@ -34,7 +34,7 @@
       "name": "Robert White",
       "email": "robert@freelance.com",
       "status": "pending",
-      "price": "$149",
+      "price": 149,
       "enrolled": 150,
       "description": "Master the art of freelancing and learn how to successfully launch and sustain your freelance career.",
       "image": "https://i.ibb.co.com/HrrRxTs/4.png"
@@ -44,7 +44,7 @@
       "name": "Mary Brown",
       "email": "mary@confidencecoach.com",
       "status": "approved",
-      "price": "$79",
+      "price": 79,
       "enrolled": 300,
       "description": "Boost your confidence and develop a mindset to take on challenges and succeed in both personal and professional life.",
       "image": "https://i.ibb.co.com/z5yG8Ph/5.png"
@@ -54,7 +54,7 @@
       "name": "Chris Green",
       "email": "chris@marketing101.com",
       "status": "pending",
-      "price": "$129",
+      "price": 129,
       "enrolled": 250,
       "description": "Learn the basics of digital marketing, including SEO, social media, email campaigns, and more.",
       "image": "https://i.ibb.co.com/VHcnfT4/6.png"
@@ -64,7 +64,7 @@
       "name": "David King",
       "email": "david@businessstrategies.com",
       "status": "approved",
-      "price": "$199",
+      "price": 199,
       "enrolled": 100,
       "description": "Understand the principles of business strategy and how to build a solid plan to grow your business.",
       "image": "https://i.ibb.co.com/HhjsPgh/7.png"
@@ -74,7 +74,7 @@
       "name": "Sarah Lee",
       "email": "sarah@graphicdesigns.com",
       "status": "approved",
-      "price": "$169",
+      "price": 169,
       "enrolled": 180,
       "description": "Learn how to create stunning designs for print and web using tools like Adobe Illustrator and Photoshop.",
       "image": "https://i.ibb.co.com/2NJVt36/8.png"
@@ -84,7 +84,7 @@
       "name": "James Black",
       "email": "james@ethicalhacking.com",
       "status": "pending",
-      "price": "$299",
+      "price": 299,
       "enrolled": 90,
       "description": "Learn ethical hacking techniques and gain the knowledge to protect your systems from malicious attacks.",
       "image": "https://i.ibb.co.com/yVfrY0f/9.png"
@@ -94,7 +94,7 @@
       "name": "Olivia Blue",
       "email": "olivia@blockchaintech.com",
       "status": "approved",
-      "price": "$349",
+      "price": 349,
       "enrolled": 110,
       "description": "Dive into blockchain and its applications, from cryptocurrencies to smart contracts and decentralized apps.",
       "image": "https://i.ibb.co.com/s3PPdxT/10.png"

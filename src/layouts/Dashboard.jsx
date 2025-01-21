@@ -16,7 +16,7 @@ const Dashboard = () => {
     return (
         <div className="flex">
             {/* Sidebar */}
-            <Sidebar className='bg-orange-600 h-screen' collapsed={collapsed}>
+            <Sidebar className='bg-orange-600' collapsed={collapsed}>
                 <button
                     onClick={toggleSidebar}
                     className="p-2 bg-orange-500 text-white rounded shadow mb-4"
@@ -31,7 +31,7 @@ const Dashboard = () => {
             </Sidebar>
 
             {/* Main Content */}
-            <div className="flex-1 bg-gray-900 h-screen">
+            <div className="flex-1  h-screen">
             {location.pathname === "/dashboard" && <Wellcome></Wellcome>}
 
                 <Outlet></Outlet>

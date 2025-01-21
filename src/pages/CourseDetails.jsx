@@ -6,6 +6,7 @@ const CourseDetails = () => {
     const { id } = useParams(); // Get the course ID from the URL
 
     const [course, setCourse] = useState(null);
+
     const [loading, setLoading] = useState(true);
     useEffect(() => {
         // Fetch the course details based on the ID
@@ -37,7 +38,7 @@ const CourseDetails = () => {
                 <p className="text-sm text-gray-600">Email: {course.email}</p>
 
                 {/* Price and Enrolled */}
-                <p className="mt-4 text-xl font-semibold">{course.price}</p>
+                <p className="mt-4 text-xl font-semibold">$ {course.price}</p>
                 <p className="mt-2 text-sm text-gray-500">Enrolled: {course.enrolled}</p>
 
                 {/* Description */}
@@ -45,7 +46,7 @@ const CourseDetails = () => {
 
                 {/* Pay Button */}
                 <div className="mt-6">
-                    <Link to='/payment'>
+                    <Link to='/payment' state={course.price}>
                         <button className="btn py-2 bg-orange-500 text-white font-bold rounded-md hover:bg-orange-600 transition-all">
                             Pay Now
                         </button></Link>

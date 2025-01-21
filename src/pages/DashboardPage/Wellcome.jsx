@@ -46,6 +46,7 @@ const Wellcome = () => {
                     }}
                 />
             </motion.div>
+            
         </div>
     );
 };
