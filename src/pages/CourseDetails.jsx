@@ -46,7 +46,7 @@ const CourseDetails = () => {
 
                 {/* Pay Button */}
                 <div className="mt-6">
-                    <Link to='/payment' state={course.price}>
+                    <Link to='/payment' state={course}>
                         <button className="btn py-2 bg-orange-500 text-white font-bold rounded-md hover:bg-orange-600 transition-all">
                             Pay Now
                         </button></Link>

@@ -6,7 +6,7 @@ import { loadStripe } from '@stripe/stripe-js';
 
 const Payemnt = () => {
     const location = useLocation()
-    const amount = location.state;
+    const course = location.state;
 
     const stripePromise = loadStripe(import.meta.env.VITE_STRIPE_PUBLIC_KEY);
     return (
@@ -14,11 +14,11 @@ const Payemnt = () => {
         <div className="w-full max-w-lg bg-white shadow-md rounded-lg p-6">
             <h1 className="text-2xl font-bold text-center mb-4">Payment</h1>
             <div className="mb-6">
-                <p className="text-xl font-bold mt-2">Amount: ${amount}</p>
+                <p className="text-xl font-bold mt-2">Amount: ${course.price}</p>
             </div>
             {/* Wrap CheckoutForm with Elements and pass stripePromise */}
             <Elements stripe={stripePromise}>
-                <CheckoutForm amount={amount} />
+                <CheckoutForm course={course} />
             </Elements>
         </div>
     </div>
