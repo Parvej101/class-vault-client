@@ -1,0 +1,38 @@
+[
+    {
+      "title": "Introduction to React",
+      "description": "Learn the basics of React, including components, props, and state management.",
+      "deadline": "2025-05-30",
+      "totalMarks": 100,
+      "name": "John Doe"
+    },
+    {
+      "title": "Advanced JavaScript Concepts",
+      "description": "Dive into closures, promises, and asynchronous programming in JavaScript.",
+      "deadline": "2025-02-05",
+      "totalMarks": 150,
+      "name": "Jane Smith"
+    },
+    {
+      "title": "Database Design and Management",
+      "description": "Understand relational database concepts and write optimized queries.",
+      "deadline": "2025-02-12",
+      "totalMarks": 120,
+      "name": "Alice Johnson"
+    },
+    {
+      "title": "Node.js and Express Basics",
+      "description": "Build a RESTful API using Node.js and Express framework.",
+      "deadline": "2025-02-20",
+      "totalMarks": 130,
+      "name": "Bob Williams"
+    },
+    {
+      "title": "Frontend Integration with APIs",
+      "description": "Learn to integrate a frontend application with backend APIs using Axios.",
+      "deadline": "2025-02-28",
+      "totalMarks": 110,
+      "name": "Emma Brown"
+    }
+  ]
+  

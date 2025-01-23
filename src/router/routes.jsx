@@ -14,6 +14,7 @@ import ApplyTeacher from "../pages/ApplyTeacher";
 import Dashboard from "../layouts/Dashboard";
 import MyEnrollClass from "../pages/DashboardPage/MyEnrollClass";
 import Profile from "../pages/DashboardPage/Profile";
+import Assignment from "../pages/DashboardPage/Assignment";
 
 
 const routes = createBrowserRouter([
@@ -44,7 +45,7 @@ const routes = createBrowserRouter([
       },
       {
         path: '/payment',
-        element: <PrivateRoutes><Payemnt></Payemnt></PrivateRoutes>
+        element: <PrivateRoutes><Payemnt></Payemnt></PrivateRoutes>,
       },
       {
         path: 'applyTeacher',
@@ -65,6 +66,10 @@ const routes = createBrowserRouter([
       {
         path: 'profile',
         element: <Profile></Profile>
+      },
+      {
+        path: 'assignment/:id',
+        element: <Assignment></Assignment>
       },
     ]
   },

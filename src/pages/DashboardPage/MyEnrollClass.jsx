@@ -5,7 +5,7 @@ import useAuth from '../../hooks/useAuth';
 
 const MyEnrollClass = () => {
     const {user} = useAuth()
-    console.log(user);
+
     const [enrolledClasses, setEnrolledClasses] = useState([]);
 
     useEffect(() => {
@@ -37,7 +37,7 @@ const MyEnrollClass = () => {
                             <div className="p-4">
                                 <h2 className="text-lg font-bold">{course.title}</h2>
                                 <p className="text-sm text-gray-600">Instructor: {course.instructorName}</p>
-                                <Link to={`/class/${course.courseId}`}>
+                                <Link to={`/dashboard/assignment/${course.courseId}`} course={course}>
                                     <button className="mt-4 bg-orange-500 text-white px-4 py-2 rounded hover:bg-orange-600 transition">
                                         Continue
                                     </button>
