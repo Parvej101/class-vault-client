@@ -4,9 +4,10 @@ import { Link } from 'react-router-dom';
 import useAuth from '../../hooks/useAuth';
 
 const MyEnrollClass = () => {
-    const {user} = useAuth()
+    const { user } = useAuth()
 
     const [enrolledClasses, setEnrolledClasses] = useState([]);
+
 
     useEffect(() => {
         const fetchEnrolledClasses = async () => {
@@ -17,7 +18,7 @@ const MyEnrollClass = () => {
                 console.error("Error fetching enrolled classes:", error.message);
             }
         };
-    
+
         fetchEnrolledClasses();
     }, [user.email]);
     return (
@@ -37,7 +38,12 @@ const MyEnrollClass = () => {
                             <div className="p-4">
                                 <h2 className="text-lg font-bold">{course.title}</h2>
                                 <p className="text-sm text-gray-600">Instructor: {course.instructorName}</p>
-                                <Link to={`/dashboard/assignment/${course.courseId}`} course={course}>
+                                <Link
+                                    to={{
+                                        pathname: `/dashboard/assignment/${course.courseId}`,
+                                    }}
+                                    state={{ course }} // Passing specific data to the route
+                                >
                                     <button className="mt-4 bg-orange-500 text-white px-4 py-2 rounded hover:bg-orange-600 transition">
                                         Continue
                                     </button>

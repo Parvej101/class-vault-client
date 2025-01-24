@@ -1,27 +1,27 @@
 [
     {
-      "feedbackText": "This class completely transformed my understanding of web development. The instructor was incredibly thorough and engaging!",
+      "review": "This class completely transformed my understanding of web development. The instructor was incredibly thorough and engaging!",
       "name": "Sophia Carter",
       "image": "/assets/images/sophia.jpg",
       "title": "Full Stack Web Development Bootcamp",
       "rating": 5.0
     },
     {
-      "feedbackText": "I learned so much about UX/UI design in such a short time. The examples and practical tasks were fantastic!",
+      "review": "I learned so much about UX/UI design in such a short time. The examples and practical tasks were fantastic!",
       "name": "Michael Brown",
       "image": "/assets/images/michael.jpg",
       "title": "UI/UX Design Essentials",
       "rating": 4.0
     },
     {
-      "feedbackText": "This course gave me the confidence to start freelancing. It’s a must for anyone looking to build their own career path.",
+      "review": "This course gave me the confidence to start freelancing. It’s a must for anyone looking to build their own career path.",
       "name": "Emily Davis",
       "image": "/assets/images/emily.jpg",
       "title": "How to Become a Freelancer",
       "rating": 4.5
     },
     {
-      "feedbackText": "The instructor explained the concepts of blockchain technology in a very simple and effective way. Highly recommend it!",
+      "review": "The instructor explained the concepts of blockchain technology in a very simple and effective way. Highly recommend it!",
       "name": "James Wilson",
       "image": "/assets/images/james.jpg",
       "title": "Blockchain Basics",

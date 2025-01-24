@@ -15,6 +15,7 @@ import Dashboard from "../layouts/Dashboard";
 import MyEnrollClass from "../pages/DashboardPage/MyEnrollClass";
 import Profile from "../pages/DashboardPage/Profile";
 import Assignment from "../pages/DashboardPage/Assignment";
+import TerModals from "../components/TerModals";
 
 
 const routes = createBrowserRouter([
@@ -71,6 +72,7 @@ const routes = createBrowserRouter([
         path: 'assignment/:id',
         element: <Assignment></Assignment>
       },
+      
     ]
   },
 ])

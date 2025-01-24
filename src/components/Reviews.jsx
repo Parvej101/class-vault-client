@@ -15,7 +15,7 @@ import Rating from "react-rating";
 const Reviews = () => {
     const [reviews, setReviews] = useState([]);
     useEffect(() => {
-        fetch('/reviews.json') // Ensure this path points to your JSON file
+        fetch('http://localhost:5000/reviews')
           .then((res) => res.json())
           .then((data) => setReviews(data))
           .catch((error) => console.error('Error fetching feedbacks:', error));
@@ -53,7 +53,7 @@ const Reviews = () => {
                    fullSymbol="fa fa-star fa-2x text-yellow-500" // Filled star class
                  />
                </div>
-               <p className="my-4 text-gray-700">{review.feedbackText}</p>
+               <p className="my-4 text-gray-700">{review.review}</p>
              </div>
            </SwiperSlide>
           ))}
