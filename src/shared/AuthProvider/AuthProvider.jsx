@@ -63,18 +63,25 @@ const AuthProvider = ({ children }) => {
     }
     const logout = () => signOut(auth);
 
-    // Google login
-    const googleProvider = new GoogleAuthProvider();
-    const loginWithGoogle = async () => {
-        setLoading(true);
-        try {
-            const result = await signInWithPopup(auth, googleProvider);
-            setUser(result.user)
-        } finally {
-            setLoading(false)
+   // Google login
+const googleProvider = new GoogleAuthProvider();
+const loginWithGoogle = async () => {
+    setLoading(true);
+    try {
+        const result = await signInWithPopup(auth, googleProvider);
+        if (result && result.user) {
+            setUser(result.user);  // Store the user object
+            console.log('User Info:', result.user);  // Check if user data is returned
+            return result.user;  // Return user data
+        } else {
+            console.error("No user found in result:", result);
         }
-
+    } catch (error) {
+        console.error("Error during Google login:", error);
+    } finally {
+        setLoading(false);
     }
+};
 
     const authInfo = {
         user,

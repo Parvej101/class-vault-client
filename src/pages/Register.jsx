@@ -21,15 +21,16 @@ const Register = () => {
 
     const onSubmit = async (data) => {
         console.log(data);
-        const { name, email, password, photoURL } = data;
+        const { name, email, password, photoURL, phoneNumber } = data;
         try {
-            await registerUser(email, password, name, photoURL);
+            await registerUser(email, password, name, photoURL, phoneNumber);
 
             // create user entry in database
             const userInfo = {
                 name: name,
                 email: email,
                 photo: photoURL,
+                phoneNumber: phoneNumber,
                 role: "user"
             }
             axiosPublic.post('/users', userInfo)
@@ -132,6 +133,21 @@ const Register = () => {
                                 {errors.password && (
                                     <span className="text-red-500 text-sm">
                                         {errors.password.message}
+                                    </span>
+                                )}
+                            </div>
+                            {/* Phone Number Input */}
+                            <div>
+                                <label className="block text-gray-700">Phone Number</label>
+                                <input
+                                    type="tel"
+                                    {...register("phoneNumber", { required: "Phone number is required" })}
+                                    placeholder="Enter your phone number"
+                                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring focus:ring-orange-300"
+                                />
+                                {errors.phoneNumber && (
+                                    <span className="text-red-500 text-sm">
+                                        {errors.phoneNumber.message}
                                     </span>
                                 )}
                             </div>
