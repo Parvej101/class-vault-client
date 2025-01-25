@@ -16,6 +16,7 @@ import MyEnrollClass from "../pages/DashboardPage/MyEnrollClass";
 import Profile from "../pages/DashboardPage/Profile";
 import Assignment from "../pages/DashboardPage/Assignment";
 import TerModals from "../components/TerModals";
+import TeacherRequest from "../pages/TeacherRequest";
 
 
 const routes = createBrowserRouter([
@@ -62,15 +63,19 @@ const routes = createBrowserRouter([
     children: [
       {
         path: 'myEnroll',
-        element: <MyEnrollClass></MyEnrollClass>,
+        element: <PrivateRoutes><MyEnrollClass></MyEnrollClass></PrivateRoutes>,
       },
       {
         path: 'profile',
-        element: <Profile></Profile>
+        element:<PrivateRoutes> <Profile></Profile></PrivateRoutes>
       },
       {
         path: 'assignment/:id',
-        element: <Assignment></Assignment>
+        element:<PrivateRoutes> <Assignment></Assignment></PrivateRoutes>
+      },
+      {
+        path: 'teacherRequest',
+        element: <PrivateRoutes><TeacherRequest></TeacherRequest></PrivateRoutes>
       },
       
     ]

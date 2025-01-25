@@ -6,11 +6,6 @@ import useAuth from "./useAuth";
 const useRole = () => {
     const { user } = useAuth();
     const email = user?.email;
-
-
-    const useAxiosSecure = axiosSecure();
-
-   
     // Fetch the user's role
     const {
         data: role,
@@ -26,41 +21,41 @@ const useRole = () => {
         enabled: !!email, // Fetch only if email is available
     });
 
-    // Fetch role-specific data only when role is successfully fetched
-    const {
-        data: roleData,
-        isLoading: isRoleDataLoading,
-        isError: isRoleDataError,
-    } = useQuery({
-        queryKey: ['roleData', role],
-        queryFn: async () => {
-            if (role === 'teacher') {
-                const res = await axiosSecure.get('/dashboard/teacher');
-                return res.data;
-            } else if (role === 'admin') {
-                const res = await axiosSecure.get('/dashboard/admin');
-                return res.data;
-            } else if (role === 'user') {
-                const res = await axiosSecure.get('/dashboard');
-                return res.data;
-            } else {
-                return null; // No operation for other roles
-            }
-        },
-        enabled: !!role, // Fetch role data only if role is defined
-    });
+    // // Fetch role-specific data only when role is successfully fetched
+    // const {
+    //     data: roleData,
+    //     isLoading: isRoleDataLoading,
+    //     isError: isRoleDataError,
+    // } = useQuery({
+    //     queryKey: ['roleData', role],
+    //     queryFn: async () => {
+    //         if (role === 'teacher') {
+    //             const res = await axiosSecure.get('/dashboard/teacher');
+    //             return res.data;
+    //         } else if (role === 'admin') {
+    //             const res = await axiosSecure.get('/dashboard/admin');
+    //             return res.data;
+    //         } else if (role === 'user') {
+    //             const res = await axiosSecure.get('/dashboard');
+    //             return res.data;
+    //         } else {
+    //             return null; // No operation for other roles
+    //         }
+    //     },
+    //     enabled: !!role, // Fetch role data only if role is defined
+    // });
 
-    // Debugging logs
-    console.log("Email:", email);
-    console.log("Role:", role);
+    // // Debugging logs
+    // console.log("Email:", email);
+    // console.log("Role:", role);
 
-    // Return the role and roleData, with loading state
+    // // Return the role and roleData, with loading state
     return {
         role,
-        roleData,
-        isLoading: isRoleLoading || isRoleDataLoading,
-        isRoleError,
-        isRoleDataError,
+        // roleData,
+        // isLoading: isRoleLoading || isRoleDataLoading,
+        // isRoleError,
+        // isRoleDataError,
     };
 };
 
