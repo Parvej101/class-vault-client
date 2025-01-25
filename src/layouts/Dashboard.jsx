@@ -75,7 +75,7 @@ const Dashboard = () => {
             </Sidebar>
 
             {/* Main Content */}
-            <div className="flex-1  h-screen">
+            <div className="flex-1 pl-5  h-screen">
                 {location.pathname === "/dashboard" && <Wellcome></Wellcome>}
 
                 <Outlet></Outlet>

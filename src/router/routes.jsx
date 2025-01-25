@@ -17,6 +17,7 @@ import Profile from "../pages/DashboardPage/Profile";
 import Assignment from "../pages/DashboardPage/Assignment";
 import TerModals from "../components/TerModals";
 import TeacherRequest from "../pages/TeacherRequest";
+import Users from "../pages/Users";
 
 
 const routes = createBrowserRouter([
@@ -73,9 +74,14 @@ const routes = createBrowserRouter([
         path: 'assignment/:id',
         element:<PrivateRoutes> <Assignment></Assignment></PrivateRoutes>
       },
+      // admin dashboard
       {
         path: 'teacherRequest',
         element: <PrivateRoutes><TeacherRequest></TeacherRequest></PrivateRoutes>
+      },
+      {
+        path: 'users',
+        element: <PrivateRoutes><Users></Users></PrivateRoutes>
       },
       
     ]
