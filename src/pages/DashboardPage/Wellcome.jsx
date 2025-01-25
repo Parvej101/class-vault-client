@@ -2,7 +2,7 @@
 import { motion } from "framer-motion";
 const Wellcome = () => {
     return (
-        <div className="w-screen h-screen flex items-center justify-center bg-gray-900">
+        <div className="w-full h-screen flex items-center justify-center bg-gray-900">
             <motion.div
                 className="text-center p-6"
                 initial={{ opacity: 0, y: -50 }}
