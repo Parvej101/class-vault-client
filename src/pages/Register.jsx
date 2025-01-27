@@ -1,7 +1,7 @@
 import { useForm } from "react-hook-form";
 import { motion } from "framer-motion";
 
-import animation from '../assets/lottie/register.json'
+// import animation from '../assets/lottie/register.json'
 import { Player } from "@lottiefiles/react-lottie-player";
 import useAuth from "../hooks/useAuth";
 import { Link, useNavigate } from "react-router-dom";
@@ -63,7 +63,7 @@ const Register = () => {
                 <Player
                     autoplay
                     loop
-                    src={animation} // Replace with your Lottie JSON URL
+                    // src={animation} // Replace with your Lottie JSON URL
                     className="w-72 lg:w-96"
                 />
             </div>

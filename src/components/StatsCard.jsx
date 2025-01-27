@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import statsImg from '../assets/pictures/courses.png'
+import { FaBook, FaStoreAltSlash, FaUser } from 'react-icons/fa';
 const StatsCard = () => {
     const [stats, setStats] = useState({ totalUser: 0, totalClass: 0, totalEnrollment: 0 });
   
@@ -27,7 +28,7 @@ const StatsCard = () => {
                         <h3 className="text-2xl font-semibold text-gray-800">Total Users</h3>
                         <p className="text-3xl font-bold text-gray-900">{stats.totalUser}</p>
                     </div>
-                    <div className="text-4xl text-blue-500">👥</div>
+                    <div className="text-4xl text-blue-500"><FaUser></FaUser></div>
                 </motion.div>
 
                 {/* Total Classes Card */}
@@ -41,7 +42,7 @@ const StatsCard = () => {
                         <h3 className="text-2xl font-semibold text-gray-800">Total Classes</h3>
                         <p className="text-3xl font-bold text-gray-900">{stats.totalClass}</p>
                     </div>
-                    <div className="text-4xl text-green-500">📚</div>
+                    <div className="text-4xl text-green-500"><FaBook></FaBook></div>
                 </motion.div>
 
                 {/* Total Enrollment Card */}
@@ -55,7 +56,7 @@ const StatsCard = () => {
                         <h3 className="text-2xl font-semibold text-gray-800">Total Enrollment</h3>
                         <p className="text-3xl font-bold text-gray-900">{stats.totalEnrollment}</p>
                     </div>
-                    <div className="text-4xl text-yellow-500">📈</div>
+                    <div className="text-4xl text-yellow-500"><FaStoreAltSlash></FaStoreAltSlash></div>
                 </motion.div>
             </div>
 

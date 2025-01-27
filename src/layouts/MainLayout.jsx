@@ -9,7 +9,7 @@ const MainLayout = () => {
             <Navbar></Navbar>
            <div className="mt-24"> <Outlet></Outlet></div>
             {/* ToDo : uncommnet this footer */}
-            {/* <Footer></Footer> */}
+            <Footer></Footer>
         </div>
     );
 };
