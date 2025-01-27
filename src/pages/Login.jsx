@@ -15,10 +15,13 @@ const Login = () => {
     const navigate = useNavigate();
     const location = useLocation()
 
-    const handleRedirect = () => {
-        const redirectTo = location.state?.from || '/';
-        navigate(redirectTo);
+     // Handle redirection after login
+     const handleRedirect = () => {
+        const redirectTo = location.state?.from?.pathname || '/'; // Default to '/' if no state exists
+        console.log('Redirecting to:', redirectTo); // Debugging log
+        navigate(redirectTo, { replace: true });
     };
+
     const {
         register,
         handleSubmit,

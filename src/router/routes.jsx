@@ -18,6 +18,7 @@ import Assignment from "../pages/DashboardPage/Assignment";
 import TerModals from "../components/TerModals";
 import TeacherRequest from "../pages/TeacherRequest";
 import Users from "../pages/Users";
+import AdminClasses from "../pages/DashboardPage/AdminClasses";
 
 
 const routes = createBrowserRouter([
@@ -82,6 +83,10 @@ const routes = createBrowserRouter([
       {
         path: 'users',
         element: <PrivateRoutes><Users></Users></PrivateRoutes>
+      },
+      {
+        path: 'adminClasses',
+        element: <PrivateRoutes><AdminClasses></AdminClasses></PrivateRoutes>
       },
       
     ]

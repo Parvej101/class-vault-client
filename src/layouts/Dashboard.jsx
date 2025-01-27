@@ -62,7 +62,7 @@ const Dashboard = () => {
                         <Link to='/'> <MenuItem icon={<FaHome />}>Home</MenuItem></Link>
                         <Link to='/dashboard/teacherRequest'> <MenuItem icon={<FaUpload></FaUpload>}>Teacher Request</MenuItem></Link>
                         <Link to='/dashboard/users'> <MenuItem icon={<FaUsers></FaUsers>}>Users</MenuItem></Link>
-                        <Link to='/dashboard/courses'> <MenuItem icon={<FaVideo></FaVideo>}>All classes</MenuItem></Link>
+                        <Link to='/dashboard/adminClasses'> <MenuItem icon={<FaVideo></FaVideo>}>All classes</MenuItem></Link>
                         <Link to='/dashboard/myEnroll'> <MenuItem icon={<FaUser></FaUser>}>Profile</MenuItem></Link>
                     </Menu>
                 )}
