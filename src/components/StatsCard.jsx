@@ -7,7 +7,7 @@ const StatsCard = () => {
   
     useEffect(() => {
       // Fetching stats from the backend
-      fetch('http://localhost:5000/stats')
+      fetch('https://class-vault-server.vercel.app/stats')
         .then((res) => res.json())
         .then((data) => setStats(data))
         .catch((error) => console.error('Error fetching stats:', error));

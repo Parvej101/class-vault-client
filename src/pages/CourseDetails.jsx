@@ -10,7 +10,7 @@ const CourseDetails = () => {
     const [loading, setLoading] = useState(true);
     useEffect(() => {
         // Fetch the course details based on the ID
-        fetch(`http://localhost:5000/courseDetails/${id}`)
+        fetch(`https://class-vault-server.vercel.app/courseDetails/${id}`)
             .then((response) => response.json())
             .then((data) => {
                 setCourse(data);

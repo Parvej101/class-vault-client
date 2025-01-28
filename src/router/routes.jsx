@@ -20,6 +20,7 @@ import TeacherRequest from "../pages/TeacherRequest";
 import Users from "../pages/Users";
 import AdminClasses from "../pages/DashboardPage/AdminClasses";
 import AddClass from "../pages/DashboardPage/AddClass";
+import MyClass from "../pages/DashboardPage/MyClass";
 
 
 const routes = createBrowserRouter([
@@ -93,6 +94,10 @@ const routes = createBrowserRouter([
       {
         path: 'addclass',
         element: <PrivateRoutes><AddClass></AddClass></PrivateRoutes>
+      },
+      {
+        path: 'myClass',
+        element: <PrivateRoutes><MyClass></MyClass></PrivateRoutes>
       },
     ]
   },

@@ -8,7 +8,7 @@ const PopularClass = () => {
 
     const [courses, setCourses] = useState([]);
     useEffect(() => {
-        fetch('http://localhost:5000/popular-courses')
+        fetch('https://class-vault-server.vercel.app/popular-courses')
             .then((res) => res.json())
             .then((data) => {
                 // console.log('Fetched data:', data); // Debugging

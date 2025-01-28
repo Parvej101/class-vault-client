@@ -32,7 +32,7 @@ const AddClass = () => {
             });
     
             reset(); // Reset the form
-            navigate('/my-classes'); // Redirect to 'My Classes' page
+            navigate('/dashboard/myClass'); // Redirect to 'My Classes' page
           }
         } catch (error) {
           console.error('Error adding class:', error);

@@ -11,7 +11,7 @@ const AllClasses = () => {
 
     useEffect(() => {
         // Fetch the data from the public folder
-        fetch("http://localhost:5000/courses")
+        fetch("https://class-vault-server.vercel.app/courses")
             .then((response) => response.json())
             .then((data) => {
                 setCourses(data);
