@@ -19,6 +19,7 @@ import TerModals from "../components/TerModals";
 import TeacherRequest from "../pages/TeacherRequest";
 import Users from "../pages/Users";
 import AdminClasses from "../pages/DashboardPage/AdminClasses";
+import AddClass from "../pages/DashboardPage/AddClass";
 
 
 const routes = createBrowserRouter([
@@ -88,7 +89,11 @@ const routes = createBrowserRouter([
         path: 'adminClasses',
         element: <PrivateRoutes><AdminClasses></AdminClasses></PrivateRoutes>
       },
-      
+      // Teachers routes
+      {
+        path: 'addclass',
+        element: <PrivateRoutes><AddClass></AddClass></PrivateRoutes>
+      },
     ]
   },
 ])
