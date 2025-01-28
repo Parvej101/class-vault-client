@@ -1,6 +1,6 @@
 import { useForm } from "react-hook-form";
 import { motion } from "framer-motion";
-// import animation from '../assets/lottie/login.json';
+import animation from '../assets/lottie/login.json';
 import { Player } from "@lottiefiles/react-lottie-player";
 import useAuth from "../hooks/useAuth";
 import { Link, useLocation, useNavigate } from "react-router-dom";
@@ -127,7 +127,7 @@ const Login = () => {
                 <Player
                     autoplay
                     loop
-                    // src={animation}
+                    src={animation}
                     className="w-72 lg:w-96"
                 />
             </div>

@@ -10,7 +10,7 @@ const Navbar = () => {
     const navOptions = <>
         <li><NavLink to="/">Home</NavLink></li>
         <li><NavLink to="/allClasses">All Classes</NavLink></li>
-        <li><NavLink to="/teach">Tech On Class-Vault</NavLink></li>
+        <li><NavLink to="/applyTeacher">Tech On Class-Vault</NavLink></li>
 
     </>
     const handleToggleDropdown = () => {

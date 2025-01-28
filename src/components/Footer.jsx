@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 const Footer = () => {
     return (
-        <footer className="bg-gray-900 text-gray-300">
+        <footer className="bg-orange-900 text-gray-300">
         {/* Footer Main Content */}
         <div className="container mx-auto px-4 py-10 grid grid-cols-1 md:grid-cols-4 gap-8">
             {/* About Section */}
@@ -82,7 +82,7 @@ const Footer = () => {
         </div>
 
         {/* Footer Bottom */}
-        <div className="bg-gray-800 text-center py-4 text-sm text-gray-400">
+        <div className="bg-orange-800 text-center py-4 text-sm text-gray-400">
             <p>© 2025 ClassVault. All Rights Reserved.</p>
         </div>
     </footer>
