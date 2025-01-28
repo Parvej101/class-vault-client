@@ -4,11 +4,13 @@
 **ClassVault**
 
 ## Admin Credentials:
-- **Username**: 
-- **Password**: 
+
+admin: testing@gmail.com
+password : 123456
+
 
 ## Live Site URL:
-
+Live link : https://class-vault.web.app/
 
 ---
 
