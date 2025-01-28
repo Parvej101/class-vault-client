@@ -14,7 +14,17 @@ const Profile = () => {
         const fetchUserData = async () => {
             try {
                 const response = await axiosSecure.get(`/users?email=${email}`);
-                setUser(response.data);
+                
+                if (Array.isArray(response.data) && response.data.length > 0) {
+                    setUser(response.data[0]); // Use the first user from the array
+                } else {
+                    Swal.fire({
+                        title: 'No User Found',
+                        text: 'No user data matching the email was found.',
+                        icon: 'info',
+                        confirmButtonText: 'Okay',
+                    });
+                }
             } catch (error) {
                 console.error('Error fetching user data:', error);
                 Swal.fire({
@@ -27,11 +37,11 @@ const Profile = () => {
                 setLoading(false);
             }
         };
-
+    
         fetchUserData();
     }, [email]);
-  
-
+    
+console.log(user);
     // If the data is still loading
     if (loading) {
         return <Loading></Loading>
@@ -46,7 +56,7 @@ const Profile = () => {
             <div className="w-2/4 rounded-lg shadow-lg bg-orange-100 p-6">
                 <img
                     className="w-32 h-32 rounded-full mx-auto mb-4 border-4 border-orange-300"
-                    src={user.photo || 'https://via.placeholder.com/150'}
+                    src={user.photo }
                     alt={user.name}
                 />
                 <div className="text-center">
