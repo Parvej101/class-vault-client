@@ -22,7 +22,7 @@ const BecomeTeacher = () => {
                     Whether you're a seasoned professional or just starting, you can make a difference.
                 </p>
                 <Link to='applyTeacher'>
-                    <button className="bg-green-500 text-white font-semibold py-2 px-6 rounded-lg shadow-md hover:bg-green-600 transition duration-300">
+                    <button className="btn hover:bg-green-500 text-black  btn-outline font-semibold py-2 px-6 rounded-lg shadow-md  transition duration-300">
                         Start Teaching Today
                     </button></Link>
             </div>

@@ -75,7 +75,7 @@ const Navbar = () => {
             </div>
             <div className="navbar-end">
                 {!user ? (
-                    <Link to="/login" className="btn bg-green-500 hover:bg-green-600 text-white">
+                    <Link to="/login" className="btn hover:bg-green-500 shadow-xl btn-outline text-white">
                         Login
                     </Link>
                 ) : (

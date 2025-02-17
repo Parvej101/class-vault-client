@@ -82,7 +82,7 @@ const Footer = () => {
         </div>
 
         {/* Footer Bottom */}
-        <div className="bg-orange-800 text-center py-4 text-sm text-gray-400">
+        <div className=" text-center py-4 text-sm text-gray-400">
             <p>© 2025 ClassVault. All Rights Reserved.</p>
         </div>
     </footer>

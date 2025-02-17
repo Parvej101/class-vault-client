@@ -14,13 +14,14 @@ const Home = () => {
     return (
         <div>
         <Banner></Banner>
-        <Sponsors></Sponsors>
         <PopularClass></PopularClass>
+        <Sponsors></Sponsors>
         <Reviews></Reviews>
         <StatsCard></StatsCard>
         <BecomeTeacher></BecomeTeacher>
-        <Faq></Faq>
+        
         <TimeManagement></TimeManagement>
+        <Faq></Faq>
         
         </div>
     );

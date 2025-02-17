@@ -42,15 +42,16 @@ const Faq = () => {
         },
     ];
     return (
-        <div className="container mx-auto px-4 py-8">
-            <h2 className="text-3xl font-bold text-center mb-8">Frequently Asked Questions</h2>
+       <section className="">
+         <div className="container mx-auto px-4 py-8 ">
+            <h2 className="text-3xl font-bold text-center mb-8 text-orange-500">Frequently Asked Questions</h2>
 
             <div className="space-y-6">
                 {questionsAndAnswers.map((item, index) => (
                     <div key={index} className="border-b pb-4">
                         <div
                             onClick={() => toggleFAQ(index)}
-                            className="cursor-pointer text-lg font-medium text-blue-600 hover:text-blue-800"
+                            className="cursor-pointer text-lg font-medium text-orange-600 hover:text-orange-800"
                         >
                             {item.question}
                         </div>
@@ -59,7 +60,7 @@ const Faq = () => {
                         {activeIndex === index && (
                             <animated.div
                                 style={fadeIn}
-                                className="mt-4 text-gray-700 text-base transition-all"
+                                className="mt-4 text-orange-300 text-base transition-all"
                             >
                                 <p>{item.answer}</p>
                             </animated.div>
@@ -68,6 +69,7 @@ const Faq = () => {
                 ))}
             </div>
         </div>
+       </section>
     );
 };
 

@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { FaClock } from 'react-icons/fa';
 import { useSpring } from 'react-spring';
 
 const TimeManagement = () => {
@@ -18,7 +19,7 @@ const TimeManagement = () => {
   const seconds = time.getSeconds().toString().padStart(2, '0');
 
   return (
-    <div className="bg-gray-900 text-white p-10 rounded-lg shadow-lg relative overflow-hidden">
+    <div className="bg-orange-100 text-orange-500 p-10 rounded-lg shadow-lg relative overflow-hidden">
       <div className="text-center text-3xl font-bold">
         <h2>Time Management</h2>
         <p className="text-lg my-4">Master your time with the right tools and techniques</p>
@@ -28,7 +29,7 @@ const TimeManagement = () => {
       <div className="flex flex-col md:flex-row items-center justify-center space-y-6 md:space-y-0 md:space-x-6">
         {/* Digital Clock Section with Frame */}
         <div className="flex justify-center items-center">
-          <div className="relative w-64 h-64 flex justify-center items-center bg-gray-800 rounded-full border-4 border-orange-600 shadow-md">
+          <div className="relative w-64 h-64 flex justify-center items-center bg-gray-100 rounded-full border-4 border-orange-600 shadow-md">
             <div className="text-4xl font-mono text-orange-600">
               <span>{hours}:{minutes}:{seconds}</span>
             </div>
@@ -54,12 +55,14 @@ const TimeManagement = () => {
                 </ul>
               </div>
             </div>
-            <div className="p-8 bg-orange-100 flex justify-center items-center">
+            <div className="p-8 bg-gray-100 flex justify-center items-center">
               <div className="text-center">
                 <h3 className="text-2xl font-bold text-orange-600">How to Manage Time Effectively</h3>
                 <p className="mt-4 text-gray-600">Use techniques like time blocking, prioritizing tasks, and setting goals!</p>
-                <button className="mt-6 bg-orange-600 text-white py-2 px-6 rounded-lg hover:bg-orange-700 transition-all">
-                  Start Organizing Your Time
+                <button className="mt-6 hover:bg-green-400 text-black btn-outline border py-2 px-6 rounded-lg  transition-all shadow-lg">
+                 <div className='flex justify-center items-center gap-4'>
+                 <span ><FaClock className='text-2xl items-center justify-center'></FaClock></span> <span>Organizing Your Time</span>
+                 </div>
                 </button>
               </div>
             </div>
