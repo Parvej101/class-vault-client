@@ -4,10 +4,10 @@ import bannerImg from '../assets/pictures/class-vault-banner.png'
 
 const Banner = () => {
     return (
-        <section className="bg-gradient-to-r  text-[#2C3E50] flex items-center justify-center h-screen">
-        <div className="container mx-auto   flex flex-col md:flex-row items-center">
+        <section className="bg-gradient-to-r text-[#2C3E50] flex  items-center justify-center lg:h-screen my-5">
+        <div className="container mx-auto flex flex-col-reverse md:flex-row items-center ">
             {/* Text Content */}
-            <div className="md:w-1/2 text-center md:text-left">
+            <div className="md:w-1/2 text-center md:text-left md:mt-2 mt-5">
                 <h1 className="text-4xl md:text-6xl font-bold mb-4">
                     Revolutionizing <br /> Education Management
                 </h1>
