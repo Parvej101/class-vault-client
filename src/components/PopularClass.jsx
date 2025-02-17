@@ -4,14 +4,13 @@ import 'swiper/css/effect-cards';
 import { EffectCards } from 'swiper/modules';
 import img from '../../src/assets/pictures/6.png'
 import { useEffect, useState } from 'react';
-const PopularClass = () => {
 
+const PopularClass = () => {
     const [courses, setCourses] = useState([]);
     useEffect(() => {
         fetch('https://class-vault-server.vercel.app/popular-courses')
             .then((res) => res.json())
             .then((data) => {
-                // console.log('Fetched data:', data); // Debugging
                 setCourses(data);
             })
             .catch((error) => console.error('Error fetching data:', error));
@@ -27,9 +26,8 @@ const PopularClass = () => {
                     Discover the most popular classes with the highest enrollment rates!
                 </p>
             </div>
-            <div className="w-full flex justify-center ">
-
-                <div className="w-full max-w-xl">
+            <div className="w-5/6 mx-auto flex justify-center">
+                <div className="w-full max-w-4xl px-4 sm:px-8">
                     <Swiper
                         effect={'cards'}
                         grabCursor={true}
@@ -41,20 +39,20 @@ const PopularClass = () => {
                                 <img
                                     src={course.image}
                                     alt={course.title}
-                                    className="w-full  object-cover  mb-4"
+                                    className="w-full object-cover h-48 sm:h-56 lg:h-72 mb-4 rounded-md"
                                 />
-                                <h3 className="text-lg font-bold">Title: {course.title}</h3>
-                                <p className="text-sm mt-2">Description: {course.description}</p>
+                                <h3 className="text-lg font-bold">{course.title}</h3>
+                                <p className="text-sm mt-2">{course.description}</p>
                                 <p className="text-sm mt-2 font-semibold">Price: ${course.price}</p>
-                                <div className='rounded-md font-bold py-2 bg-orange-400 text-white px-4 absolute top-0 left-0'>Enrolled : {course.enrolled}</div>
+                                <div className='rounded-md font-bold py-2 bg-orange-400 text-white px-4 absolute top-0 left-0'>
+                                    Enrolled: {course.enrolled}
+                                </div>
                             </SwiperSlide>
                         ))}
-
                     </Swiper>
                 </div>
             </div>
         </div>
-
     );
 };
 
