@@ -3,7 +3,7 @@ import image from '../assets/pictures/become-teacher.png';
 
 const BecomeTeacher = () => {
     return (
-        <div className="flex flex-col md:flex-row items-center justify-center p-6 md:p-8 bg-white w-11/12 mx-auto">
+        <div className="flex flex-col md:flex-row items-center justify-center p-6 md:p-8 bg-white w-full mx-auto">
             {/* Teacher's Picture Section */}
             <div className="w-full md:w-1/2 p-4 flex justify-center">
                 <img
