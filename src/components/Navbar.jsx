@@ -1,24 +1,27 @@
 import React, { useState } from 'react';
 import { Link, NavLink } from 'react-router-dom';
-import logo from '../assets/pictures/class-vault-logo.png'
+import logo from '../assets/pictures/class-vault-logo.png';
 import useAuth from '../hooks/useAuth';
+
 const Navbar = () => {
-    const [showDropdown, setShowDropdown] = useState(false); // State to toggle dropdown
-    // TODO : user setup in auth
-    const {user, logout } = useAuth()
+    const [showDropdown, setShowDropdown] = useState(false);
+    const { user, logout } = useAuth();
 
-    const navOptions = <>
-        <li><NavLink to="/">Home</NavLink></li>
-        <li><NavLink to="/allClasses">All Classes</NavLink></li>
-        <li><NavLink to="/applyTeacher">Tech On Class-Vault</NavLink></li>
+    const navOptions = (
+        <>
+            <li><NavLink to="/">Home</NavLink></li>
+            <li><NavLink to="/allClasses">All Classes</NavLink></li>
+            <li><NavLink to="/applyTeacher">Teach On Class-Vault</NavLink></li>
+        </>
+    );
 
-    </>
     const handleToggleDropdown = () => {
         setShowDropdown(!showDropdown);
     };
-    const handleLogout = () =>{
-        logout()
-    }
+
+    const handleLogout = () => {
+        logout();
+    };
 
     const userOptions = (
         <>
@@ -36,8 +39,9 @@ const Navbar = () => {
             </li>
         </>
     );
+
     return (
-        <div className="navbar items-center fixed top-0 z-50 bg-[rgba(255,127,95,0.76)] backdrop-blur-lg left-0 lg:px-20">
+        <div className="navbar w-full items-center sticky top-0 z-50 bg-[rgba(255,127,95,0.76)] backdrop-blur-lg left-0 right-0 px-4 lg:px-20 overflow-hidden overflow-x-hidden">
             <div className="navbar-start">
                 <div className="dropdown">
                     <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -56,21 +60,20 @@ const Navbar = () => {
                     </div>
                     <ul
                         tabIndex={0}
-                        className="font-bold  menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow ">
+                        className="font-bold menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow">
                         {navOptions}
                     </ul>
                 </div>
                 <Link>
-                    <div className='flex items-center'>
-                        <img className='w-16' src={logo} alt="" />
-                        <span className='font-bold text-2xl text-white'>Class Vault</span>
+                    <div className='flex items-center gap-2'>
+                        <img className='w-10 sm:w-12' src={logo} alt="Logo" />
+                        <span className='font-bold text-lg sm:text-xl text-white'>Class Vault</span>
                     </div>
                 </Link>
             </div>
             <div className="navbar-center hidden lg:flex">
                 <ul className="menu menu-horizontal px-1 font-bold text-white">
                     {navOptions}
-
                 </ul>
             </div>
             <div className="navbar-end">
@@ -81,10 +84,10 @@ const Navbar = () => {
                 ) : (
                     <div className="relative">
                         <button onClick={handleToggleDropdown}>
-                            <img className="w-12 h-12 rounded-full" src={user?.photoURL || user.displayName } alt="User" />
+                            <img className="w-10 h-10 rounded-full" src={user?.photoURL || user.displayName} alt="User" />
                         </button>
                         {showDropdown && (
-                            <ul className="absolute right-0 mt-2 py-5 px-5 bg-white text-black shadow-lg rounded-lg  z-50">
+                            <ul className="absolute right-0 mt-2 py-5 px-5 bg-white text-black shadow-lg rounded-lg z-50">
                                 {userOptions}
                             </ul>
                         )}
