@@ -7,11 +7,12 @@ const Navbar = () => {
     const [showDropdown, setShowDropdown] = useState(false);
     const { user, logout } = useAuth();
 
+
     const navOptions = (
         <>
-            <li><NavLink to="/">Home</NavLink></li>
-            <li><NavLink to="/allClasses">All Classes</NavLink></li>
-            <li><NavLink to="/applyTeacher">Teach On Class-Vault</NavLink></li>
+            <li className=' mb-2 '><NavLink to="/">Home</NavLink></li>
+            <li className=' mb-2'><NavLink to="/allClasses">All Classes</NavLink></li>
+            <li className=''><NavLink to="/applyTeacher">Teach On Class-Vault</NavLink></li>
         </>
     );
 
@@ -26,8 +27,8 @@ const Navbar = () => {
     const userOptions = (
         <>
             <li className="mb-4 font-sm">{user?.name || "User Name"}</li>
-            <li className='btn btn-wide'>
-                <Link to="/dashboard" className="hover:text-blue-600">Dashboard</Link>
+            <li className='btn btn-wide mb-3'>
+                <Link to="/dashboard" >Dashboard</Link>
             </li>
             <li>
                 <button
@@ -41,7 +42,7 @@ const Navbar = () => {
     );
 
     return (
-        <div className="navbar w-full items-center sticky top-0 z-50 bg-[rgba(255,127,95,0.76)] backdrop-blur-lg left-0 right-0 px-4 lg:px-20 overflow-hidden overflow-x-hidden">
+        <div className="navbar w-full items-center sticky top-0 z-[100] bg-[rgba(255,127,95,0.76)] backdrop-blur-lg left-0 right-0 px-4 lg:px-20 overflow-visible">
             <div className="navbar-start">
                 <div className="dropdown">
                     <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -60,7 +61,7 @@ const Navbar = () => {
                     </div>
                     <ul
                         tabIndex={0}
-                        className="font-bold menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow">
+                        className="font-bold menu menu-sm dropdown-content bg-[rgba(255,127,95,0.76)] rounded-box z-[1] mt-3 w-52 p-2 shadow text-white ">
                         {navOptions}
                     </ul>
                 </div>
@@ -82,12 +83,12 @@ const Navbar = () => {
                         Login
                     </Link>
                 ) : (
-                    <div className="relative">
+                    <div className="relative z-50">
                         <button onClick={handleToggleDropdown}>
                             <img className="w-10 h-10 rounded-full" src={user?.photoURL || user.displayName} alt="User" />
                         </button>
                         {showDropdown && (
-                            <ul className="absolute right-0 mt-2 py-5 px-5 bg-white text-black shadow-lg rounded-lg z-50">
+                            <ul className="absolute right-0 mt-2 py-5 px-5 bg-[rgba(255,127,95,0.76)] text-black shadow-lg rounded-lg z-50">
                                 {userOptions}
                             </ul>
                         )}
